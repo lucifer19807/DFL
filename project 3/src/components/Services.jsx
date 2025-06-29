@@ -210,7 +210,7 @@ const Services = () => {
                       </div> */}
                     </div>
                     
-                    <p className="text-slate-600 leading-relaxed">
+                    <p className="text-slate-600 font-light leading-relaxed">
                       {service.description}
                     </p>
 

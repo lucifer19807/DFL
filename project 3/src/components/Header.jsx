@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Building, Phone, Mail, ChevronDown, MapPin, Clock } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/logo.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const location = useLocation();
 
   const navItems = [
     { name: 'Home', href: '/', active: true },
@@ -22,11 +24,11 @@ const Header = () => {
         { name: 'Warehouse Services & Smart Warehousing Solutions', href: '#it-services' },
       ]
     },
-    { name: 'IT Services', href: '#it-services' },
-    { name: 'Our Presence', href: '#our-presence' },
+    { name: 'IT Services', href: '/it-services' },
+    { name: 'Our Presence', href: '/our-presence' },
     { name: 'Our Team', href: '#our-team' },
-    { name: 'Careers', href: '#careers' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Careers', href: '/careers' },
+    { name: 'Contact', href: '/contact-us' }
   ];
 
   useEffect(() => {
@@ -120,27 +122,51 @@ const Header = () => {
                         onMouseLeave={() => setActiveDropdown(null)}
                       >
                         {item.dropdown.map((dropItem, dropIndex) => (
-                          <a
-                            key={dropIndex}
-                            href={dropItem.href}
-                            className="block px-4 py-3 text-slate-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-150"
-                          >
-                            {dropItem.name}
-                          </a>
+                          dropItem.href.startsWith('#') ? (
+                            <a
+                              key={dropIndex}
+                              href={dropItem.href}
+                              className="block px-4 py-3 text-slate-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-150"
+                            >
+                              {dropItem.name}
+                            </a>
+                          ) : (
+                            <Link
+                              key={dropIndex}
+                              to={dropItem.href}
+                              className="block px-4 py-3 text-slate-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-150"
+                              onClick={closeMenu}
+                            >
+                              {dropItem.name}
+                            </Link>
+                          )
                         ))}
                       </div>
                     </div>
                   ) : (
-                    <a
-                      href={item.href}
-                      className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                        index === 0 
-                          ? 'text-blue-600 bg-blue-50' 
-                          : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50'
-                      }`}
-                    >
-                      {item.name}
-                    </a>
+                    item.href.startsWith('#') ? (
+                      <a
+                        href={item.href}
+                        className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                          location.pathname === item.href
+                            ? 'text-blue-600 bg-blue-50' 
+                            : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50'
+                        }`}
+                      >
+                        {item.name}
+                      </a>
+                    ) : (
+                      <Link
+                        to={item.href}
+                        className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                          location.pathname === item.href
+                            ? 'text-blue-600 bg-blue-50' 
+                            : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50'
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
+                    )
                   )}
                 </div>
               ))}
@@ -222,30 +248,55 @@ const Header = () => {
                     }`}>
                       <div className="ml-4 space-y-1">
                         {item.dropdown.map((dropItem, dropIndex) => (
-                          <a
-                            key={dropIndex}
-                            href={dropItem.href}
-                            onClick={closeMenu}
-                            className="block p-3 text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-150"
-                          >
-                            {dropItem.name}
-                          </a>
+                          dropItem.href.startsWith('#') ? (
+                            <a
+                              key={dropIndex}
+                              href={dropItem.href}
+                              onClick={closeMenu}
+                              className="block p-3 text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-150"
+                            >
+                              {dropItem.name}
+                            </a>
+                          ) : (
+                            <Link
+                              key={dropIndex}
+                              to={dropItem.href}
+                              onClick={closeMenu}
+                              className="block p-3 text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-150"
+                            >
+                              {dropItem.name}
+                            </Link>
+                          )
                         ))}
                       </div>
                     </div>
                   </div>
                 ) : (
-                  <a
-                    href={item.href}
-                    onClick={closeMenu}
-                    className={`block p-3 rounded-xl font-medium transition-all duration-200 ${
-                      index === 0 
-                        ? 'text-blue-600 bg-blue-50' 
-                        : 'text-slate-700 hover:bg-slate-50'
-                    }`}
-                  >
-                    {item.name}
-                  </a>
+                  item.href.startsWith('#') ? (
+                    <a
+                      href={item.href}
+                      onClick={closeMenu}
+                      className={`block p-3 rounded-xl font-medium transition-all duration-200 ${
+                        location.pathname === item.href
+                          ? 'text-blue-600 bg-blue-50' 
+                          : 'text-slate-700 hover:bg-slate-50'
+                      }`}
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      onClick={closeMenu}
+                      className={`block p-3 rounded-xl font-medium transition-all duration-200 ${
+                        location.pathname === item.href
+                          ? 'text-blue-600 bg-blue-50' 
+                          : 'text-slate-700 hover:bg-slate-50'
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  )
                 )}
               </div>
             ))}

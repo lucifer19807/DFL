@@ -67,7 +67,7 @@ const ServiceItem = ({ icon, title, description }) => (
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <div className="min-h-screen font-light bg-gradient-to-b from-slate-50 to-white">
       {/* Hero Section */}
       <section className="relative">
         <div className="container mx-auto px-4 pt-12 pb-8 lg:pt-20 lg:pb-12">

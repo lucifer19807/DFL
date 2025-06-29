@@ -16,10 +16,11 @@ const HomePage = () => {
         <About />
         <Services />
         <Transportation />
-      </div>
+      
       <CompanyInfo />
       <Testimonial />
       {/* <Contact /> */}
+      </div>
     </div>
   );
 };

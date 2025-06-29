@@ -40,7 +40,7 @@ const About = () => {
         </div>
       </div> */}
 
-      <div className="container mx-auto px-6 pt-10 pb-20">
+      <div className="container mx-auto  px-6 pt-10 pb-20">
         {/* Hero Section */}
         <div className="max-w-4xl mx-auto text-center mb-20">
           <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-8">
@@ -55,7 +55,7 @@ const About = () => {
             </span>
           </h1>
           
-          <p className="text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-12">
+          <p className="text-xl font-light text-slate-600 leading-relaxed max-w-3xl mx-auto mb-12">
           At The DFL Group, we go beyond logistics—we are your trusted partner in navigating the complexities of global shipping. As a leading international freight forwarder, we deliver seamless, end-to-end logistics solutions tailored to the diverse and dynamic needs of businesses worldwide.
           </p>
 
@@ -89,7 +89,7 @@ const About = () => {
                       {value.title}
                     </h3>
                     
-                    <p className="text-slate-600 leading-relaxed text-lg">
+                    <p className="text-slate-600 font-light leading-relaxed text-lg">
                       {value.description}
                     </p>
                   </div>

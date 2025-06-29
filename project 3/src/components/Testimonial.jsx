@@ -26,10 +26,10 @@ const Testimonial = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-16 sm:py-20 lg:py-28 relative  bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <section ref={sectionRef} className="py-16 sm:py-20 lg:py-28 relative  ">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-32 -right-32 w-96 h-96 bg-gradient-to-br from-blue-200/40 to-indigo-300/40 rounded-full mix-blend-multiply filter blur-2xl animate-blob"></div>
+        <div className="absolute top-32 -right-32 w-96 h-96 bg-gradient-to-br from-blue-200/40 to-indigo-300/40 rounded-full mix-blend-multiply filter blur-2xl animate-blob"></div>
         <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-gradient-to-tr from-purple-200/40 to-pink-300/40 rounded-full mix-blend-multiply filter blur-2xl animate-blob animation-delay-2000"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-indigo-200/30 to-blue-300/30 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
       </div>
