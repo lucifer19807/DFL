@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+.hero-bg {
+    background: linear-gradient(rgba(10, 61, 98, 0.8), rgba(10, 61, 98, 0.8)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+}
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+.project-card {
+    transition: all 0.3s ease;
+}
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+.counter-item {
+    position: relative;
+}
+.counter-item:not(:last-child):after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 50px;
+    width: 2px;
+    background-color: rgba(255,255,255,0.3);
+}
+.testimonial-card {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.contact-form input, .contact-form textarea {
+    border-bottom: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+.contact-form input:focus, .contact-form textarea:focus {
+    border-bottom-color: #f39c12;
+}
+.mobile-menu {
+    transition: transform 0.3s ease-in-out;
+}
+.mobile-menu.active {
+    transform: translateX(0);
+}
